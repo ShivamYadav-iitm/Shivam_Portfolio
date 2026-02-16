@@ -1,0 +1,237 @@
+/* 1. Global Reset & Fonts */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+::selection {
+    background-color: #00f260;
+
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0a0a0a; /* Deep dark background */
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* 2. Hero Section & Typography */
+.hero {
+    text-align: center;
+    padding: 80px 0;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.glow-text {
+    font-size: 4rem;
+    font-weight: 700;
+    /* Gradient Text Effect */
+    background:  #0575e6;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: #00f260;
+    font-weight: 600;
+}
+
+.badge-container {
+    margin-top: 15px;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 50px;
+    margin: 0 5px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 3. Section Titles */
+.section-title {
+    font-size: 2rem;
+    margin: 60px 0 30px;
+    border-left: 5px solid #00f260;
+    padding-left: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* 4. Cards (Glassmorphism) */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05); /* See-through glass */
+    backdrop-filter: blur(10px); /* Blur effect */
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect: Lift up and glow */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 242, 96, 0.2);
+    border-color: #00f260;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.card p {
+    color: #aaa;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.card small {
+    display: block;
+    color: #00f260;
+    font-family: 'Courier New', monospace;
+}
+
+/* 5. Skills Grid */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skill-card {
+    background: linear-gradient(145deg, #1e1e1e, #252526);
+    padding: 15px 25px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    text-align: center;
+    flex: 1 1 150px; /* Responsive sizing */
+}
+
+/* 6. Education Timeline Style */
+.timeline .education-item {
+    background: #111;
+    border-left: 4px solid #0575e6;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 0 10px 10px 0;
+    position: relative;
+}
+
+.education-item h3 { color: #0575e6; }
+
+/* 7. Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- BUTTON STYLES --- */
+.button-container {
+    display: flex;
+    justify-content: flex-start; /* Aligns buttons to the START (Left) */
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.connect-section {
+    text-align: left; /* Aligns text to the left */
+    margin-left: 227px;
+    margin-bottom: 60px;
+}
+
+/* LinkedIn Blue Button */
+.btn-linkedin {
+    border: 2px solid #efefef;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 119, 181, 0.2);
+}
+
+.btn-linkedin:hover {
+    background-color: #0077b5;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 119, 181, 0.6);
+    transform: translateY(-5px);
+}
+
+/* Resume Green Button */
+.btn-resume {
+    border: 2px solid #efefef;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 242, 96, 0.2);
+}
+
+.btn-resume:hover {
+    background-color: #0077b5;
+    color:#ffffff ;
+    box-shadow: 0 0 20px rgba(0, 119, 181, 0.6);
+    transform: translateY(-5px);
+}
+
+/* --- EDUCATION HOVER EFFECT --- */
+.education-item {
+    position: relative;
+    overflow: hidden; /* Hides the CGPA initially */
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    /* Ensure padding accommodates the initial content */
+    padding-bottom: 20px; 
+}
+
+/* The Secret CGPA Box */
+.cgpa-reveal {
+    max-height: 0;      /* Hidden height */
+    opacity: 0;         /* Invisible */
+    margin-top: 0;
+    color: #c4ccda;     /* Your Neon Green */
+    font-weight: bold;
+    transition: all 0.4s ease;
+}
+
+/* When Hovering the Card */
+.education-item:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter background */
+    padding-bottom: 30px; /* Make room for the new text */
+}
+
+/* Reveal the CGPA */
+.education-item:hover .cgpa-reveal {
+    max-height: 50px;   /* Expand height */
+    opacity: 1;         /* Make visible */
+    margin-top: 15px;   /* Add spacing */
+}
